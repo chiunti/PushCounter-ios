@@ -14,6 +14,9 @@
 		3CC47D2D1A78AD4500216598 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC47D2C1A78AD4500216598 /* Images.xcassets */; };
 		3CC47D301A78AD4500216598 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC47D2E1A78AD4500216598 /* LaunchScreen.xib */; };
 		3CC47D3C1A78AD4600216598 /* pushCounterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC47D3B1A78AD4600216598 /* pushCounterTests.m */; };
+		846BCCFD1A79C9FB00F4817C /* ViewResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 846BCCFC1A79C9FB00F4817C /* ViewResults.m */; };
+		846BCCFF1A79E61C00F4817C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 846BCCFE1A79E61C00F4817C /* libsqlite3.dylib */; };
+		846BCD021A79E68B00F4817C /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846BCD011A79E68B00F4817C /* DBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 		3CC47D351A78AD4600216598 /* pushCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pushCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC47D3A1A78AD4600216598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC47D3B1A78AD4600216598 /* pushCounterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pushCounterTests.m; sourceTree = "<group>"; };
+		846BCCFB1A79C9FB00F4817C /* ViewResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewResults.h; sourceTree = "<group>"; };
+		846BCCFC1A79C9FB00F4817C /* ViewResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewResults.m; sourceTree = "<group>"; };
+		846BCCFE1A79E61C00F4817C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		846BCD001A79E68B00F4817C /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		846BCD011A79E68B00F4817C /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846BCCFF1A79E61C00F4817C /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +90,15 @@
 		3CC47D1E1A78AD4500216598 /* pushCounter */ = {
 			isa = PBXGroup;
 			children = (
+				846BCD001A79E68B00F4817C /* DBManager.h */,
+				846BCD011A79E68B00F4817C /* DBManager.m */,
+				846BCCFE1A79E61C00F4817C /* libsqlite3.dylib */,
 				3CC47D231A78AD4500216598 /* AppDelegate.h */,
 				3CC47D241A78AD4500216598 /* AppDelegate.m */,
 				3CC47D261A78AD4500216598 /* PushCounter.h */,
 				3CC47D271A78AD4500216598 /* PushCounter.m */,
+				846BCCFB1A79C9FB00F4817C /* ViewResults.h */,
+				846BCCFC1A79C9FB00F4817C /* ViewResults.m */,
 				3CC47D291A78AD4500216598 /* Main.storyboard */,
 				3CC47D2C1A78AD4500216598 /* Images.xcassets */,
 				3CC47D2E1A78AD4500216598 /* LaunchScreen.xib */,
@@ -220,8 +234,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC47D281A78AD4500216598 /* PushCounter.m in Sources */,
+				846BCCFD1A79C9FB00F4817C /* ViewResults.m in Sources */,
 				3CC47D251A78AD4500216598 /* AppDelegate.m in Sources */,
 				3CC47D221A78AD4500216598 /* main.m in Sources */,
+				846BCD021A79E68B00F4817C /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +428,7 @@
 				3CC47D411A78AD4600216598 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CC47D421A78AD4600216598 /* Build configuration list for PBXNativeTarget "pushCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +437,7 @@
 				3CC47D441A78AD4600216598 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
