@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449.5" y="67.5"/>
+            <point key="canvasLocation" x="211.5" y="165.5"/>
         </scene>
         <!--View Results-->
         <scene sceneID="DeT-YO-m3g">
@@ -126,7 +126,7 @@
                                 <rect key="frame" x="6" y="82" width="375" height="605"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="bRA-Fw-a7f" detailTextLabel="Ke1-jY-TjR" style="IBUITableViewCellStyleValue1" id="Eq1-cr-pMk" userLabel="viewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellScore" textLabel="bRA-Fw-a7f" detailTextLabel="Ke1-jY-TjR" rowHeight="44" style="IBUITableViewCellStyleValue1" id="Eq1-cr-pMk" userLabel="viewCell" customClass="CellScore">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eq1-cr-pMk" id="nGF-UM-XVH" userLabel="content">
@@ -146,6 +146,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblDetail" destination="Ke1-jY-TjR" id="7gS-WH-BjJ"/>
+                                            <outlet property="lblTitle" destination="bRA-Fw-a7f" id="JQo-ca-IS7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -157,6 +161,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="6GW-3S-0CR" id="Lkc-0R-OcH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IO-dX-cfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CB279831A7AC6CD00EAF3F3 /* CellScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB279821A7AC6CD00EAF3F3 /* CellScore.m */; };
 		3CC47D221A78AD4500216598 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC47D211A78AD4500216598 /* main.m */; };
 		3CC47D251A78AD4500216598 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC47D241A78AD4500216598 /* AppDelegate.m */; };
 		3CC47D281A78AD4500216598 /* PushCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC47D271A78AD4500216598 /* PushCounter.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CB279811A7AC6CD00EAF3F3 /* CellScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellScore.h; sourceTree = SOURCE_ROOT; };
+		3CB279821A7AC6CD00EAF3F3 /* CellScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellScore.m; sourceTree = SOURCE_ROOT; };
 		3CC47D1C1A78AD4500216598 /* pushCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pushCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC47D201A78AD4500216598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC47D211A78AD4500216598 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,9 +72,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CB279801A7AC65900EAF3F3 /* Customized */ = {
+			isa = PBXGroup;
+			children = (
+				3CB279811A7AC6CD00EAF3F3 /* CellScore.h */,
+				3CB279821A7AC6CD00EAF3F3 /* CellScore.m */,
+			);
+			name = Customized;
+			path = pushCounter;
+			sourceTree = "<group>";
+		};
 		3CC47D131A78AD4500216598 = {
 			isa = PBXGroup;
 			children = (
+				3CB279801A7AC65900EAF3F3 /* Customized */,
 				3CC47D1E1A78AD4500216598 /* pushCounter */,
 				3CC47D381A78AD4600216598 /* pushCounterTests */,
 				3CC47D1D1A78AD4500216598 /* Products */,
@@ -235,6 +249,7 @@
 			files = (
 				3CC47D281A78AD4500216598 /* PushCounter.m in Sources */,
 				846BCCFD1A79C9FB00F4817C /* ViewResults.m in Sources */,
+				3CB279831A7AC6CD00EAF3F3 /* CellScore.m in Sources */,
 				3CC47D251A78AD4500216598 /* AppDelegate.m in Sources */,
 				3CC47D221A78AD4500216598 /* main.m in Sources */,
 				846BCD021A79E68B00F4817C /* DBManager.m in Sources */,
