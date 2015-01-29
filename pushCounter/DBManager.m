@@ -7,9 +7,13 @@
 //
 
 #import "DBManager.h"
+
+static NSString    *dataBaseFile = @"pushCounter.db";
+static const char  *CreateTable  = "create table if not exists scores (id integer primary key autoincrement, score integer, detail text";
+static NSString    *insertScores = @"insert into scores (score,detail) values (\"%ld\",\"%@\")";
 static DBManager *sharedInstance = nil;
-static sqlite3 *database = nil;
-static sqlite3_stmt *statement = nil;
+static sqlite3         *database = nil;
+static sqlite3_stmt   *statement = nil;
 
 @implementation DBManager
 +(DBManager*)getSharedInstance{
@@ -30,7 +34,7 @@ static sqlite3_stmt *statement = nil;
     //docsDir = [dirPaths objectAtIndex:0];
     // Build the path to the database file
     databasePath = [[NSString alloc] initWithString:
-                    [docsDir stringByAppendingPathComponent: @"pushCounter.db"]];
+                    [docsDir stringByAppendingPathComponent: dataBaseFile ]];
     BOOL isSuccess = YES;
     NSFileManager *filemgr = [NSFileManager defaultManager];
     if ([filemgr fileExistsAtPath: databasePath ] == NO)
@@ -39,7 +43,7 @@ static sqlite3_stmt *statement = nil;
         if (sqlite3_open(dbpath, &database) == SQLITE_OK)
         {
             char *errMsg;
-            const char *sql_stmt = "create table if not exists scores (id integer primary key autoincrement, score integer, detail text";
+            const char *sql_stmt = CreateTable;
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
                 != SQLITE_OK)
             {
@@ -62,7 +66,7 @@ static sqlite3_stmt *statement = nil;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
-        NSString *insertSQL = [NSString stringWithFormat:@"insert into scores (score,detail) values (\"%ld\",\"%@\")",(long)[registerNumber integerValue], detail];
+        NSString *insertSQL = [NSString stringWithFormat:insertScores,(long)[registerNumber integerValue], detail];
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
@@ -104,6 +108,34 @@ static sqlite3_stmt *statement = nil;
         }
     }
     return nil;
+}
+
+-(NSArray*) allRecords{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat: @"select score, detail from scores where id=\"%@\"",registerNumber];
+        const char *query_stmt = [querySQL UTF8String];
+        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            if (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                NSString *score = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
+                [resultArray addObject:score];
+                NSString *detail = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 1)];
+                [resultArray addObject:detail];
+                sqlite3_reset(statement);
+                return resultArray;
+            } else {
+                NSLog(@"Not found");
+                sqlite3_reset(statement);
+                return nil;
+            }
+        }
+    }
+    return nil;
+
 }
 
 @end

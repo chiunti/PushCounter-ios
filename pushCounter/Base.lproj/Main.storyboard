@@ -148,6 +148,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vgt-QM-hHF" id="yYF-3z-aYp"/>
+                                    <outlet property="delegate" destination="vgt-QM-hHF" id="Ndj-6E-YaG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
