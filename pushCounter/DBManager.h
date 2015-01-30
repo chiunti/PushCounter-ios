@@ -17,5 +17,5 @@
 -(BOOL)createDB;
 -(BOOL)saveData:(NSString*)registerNumber detail:(NSString*)detail;
 -(NSArray*) findByRegisterNumber:(NSString*)registerNumber;
-
+-(NSArray*) allRecords;
 @end

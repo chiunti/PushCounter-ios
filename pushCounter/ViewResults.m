@@ -9,8 +9,12 @@
 #import "ViewResults.h"
 #import "CellScore.h"
 
+
 NSMutableArray *maScores;
 
+@interface ViewResults()
+
+@end
 
 @implementation ViewResults
 
@@ -29,14 +33,28 @@ NSMutableArray *maScores;
 
 - (void)initController
 {
-    maScores         =  [NSMutableArray arrayWithObjects:
-                         [NSMutableArray arrayWithObjects: @"Ayer", @"1", nil],
-                         [NSMutableArray arrayWithObjects: @"Hoy", @"2", nil],
-                         [NSMutableArray arrayWithObjects: @"Mañana", @"3", nil], nil];
+    maScores = [NSMutableArray arrayWithArray:[[DBManager getSharedInstance]allRecords]];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    int pos;
     
-    }
+    //for (NSArray *record in maScores)
+        //if ([record objectAtIndex:1]=) {
+            
+        //}
+        
 
 
+NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pos inSection:0];
+[self.tableView scrollToRowAtIndexPath:indexPath
+                     atScrollPosition:UITableViewScrollPositionMiddle
+                             animated:YES];
+[self.tableView selectRowAtIndexPath:indexPath
+                            animated:YES
+                      scrollPosition:UITableViewScrollPositionNone];
+}
 
 /**********************************************************************************************
  Table Functions

@@ -9,7 +9,7 @@
 #import "DBManager.h"
 
 static NSString    *dataBaseFile = @"pushCounter.db";
-static const char  *CreateTable  = "create table if not exists scores (id integer primary key autoincrement, score integer, detail text";
+static const char  *CreateTable  = "create table if not exists scores (id integer primary key autoincrement, score integer, detail text)";
 static NSString    *insertScores = @"insert into scores (score,detail) values (\"%ld\",\"%@\")";
 static DBManager *sharedInstance = nil;
 static sqlite3         *database = nil;
@@ -48,7 +48,7 @@ static sqlite3_stmt   *statement = nil;
                 != SQLITE_OK)
             {
                 isSuccess = NO;
-                NSLog(@"Failed to create table");
+                NSLog(@"Failed to create table %s",errMsg);
             }
             sqlite3_close(database);
             return  isSuccess;
@@ -119,19 +119,16 @@ static sqlite3_stmt   *statement = nil;
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
-            if (sqlite3_step(statement) == SQLITE_ROW)
+            while (sqlite3_step(statement) == SQLITE_ROW)
             {
                 NSString *score = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
-                [resultArray addObject:score];
+                //[resultArray addObject:score];
                 NSString *detail = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 1)];
-                [resultArray addObject:detail];
-                sqlite3_reset(statement);
-                return resultArray;
-            } else {
-                NSLog(@"Not found");
-                sqlite3_reset(statement);
-                return nil;
+                //[resultArray addObject:detail];
+                [resultArray addObject:[NSMutableArray arrayWithObjects: detail, score, nil]];
             }
+            sqlite3_reset(statement);
+            return resultArray;
         }
     }
     return nil;

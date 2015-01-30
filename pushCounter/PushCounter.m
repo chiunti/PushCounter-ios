@@ -35,6 +35,17 @@ bool finished;
     // Dispose of any resources that can be recreated.
 }
 
+-(void)Save{
+    BOOL success = NO;
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+
+    
+    success = [[DBManager getSharedInstance]saveData:
+               [NSString stringWithFormat:@"%i",counter]
+               detail:[DateFormatter stringFromDate:[NSDate date]]];
+
+}
 
 
 -(void)Reset{
@@ -85,6 +96,7 @@ bool finished;
         // Finalizar
         // Mostrar resultados
         //
+        [self Save];
     } else
         [self animatedLabelCountDown:[NSString stringWithFormat:@"%d",countDown]];
 }

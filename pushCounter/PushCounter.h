@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBManager.h"
 
 @interface PushCounter : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *lblCounter;
