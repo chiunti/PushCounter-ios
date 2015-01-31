@@ -72,7 +72,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="vgt-QM-hHF" kind="show" identifier="HomeToResults" id="66B-zy-8pF"/>
+                                    <segue destination="vgt-QM-hHF" kind="presentation" modalTransitionStyle="flipHorizontal" id="Nsk-Ma-szl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The game start in..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWE-mr-2MW" userLabel="lblStartFinish">
@@ -129,7 +129,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="ResultsToHome" id="kis-Z2-A34"/>
+                                                    <action selector="btnBackPressed:" destination="vgt-QM-hHF" eventType="touchUpInside" id="Ul7-jH-S1n"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>

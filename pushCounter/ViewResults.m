@@ -117,4 +117,7 @@ NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pos inSection:0];
 }
 */
 
+- (IBAction)btnBackPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

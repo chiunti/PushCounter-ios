@@ -11,5 +11,6 @@
 
 @interface ViewResults : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)btnBackPressed:(id)sender;
 
 @end
