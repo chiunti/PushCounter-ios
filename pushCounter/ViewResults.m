@@ -8,7 +8,7 @@
 
 #import "ViewResults.h"
 #import "CellScore.h"
-
+int pos;
 
 NSMutableArray *maScores;
 
@@ -20,11 +20,20 @@ NSMutableArray *maScores;
 
 - (void)viewDidLoad
 {
+    int counter = 0;
+    pos = 0;
+
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     [self initController];
-}
+    
+    for(NSArray *item in maScores) {
+        if([[item objectAtIndex:1] integerValue] == lastScore){
+            pos = counter;
+        }
+        counter++;
+    }}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,22 +47,15 @@ NSMutableArray *maScores;
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    int pos;
-    
-    //for (NSArray *record in maScores)
-        //if ([record objectAtIndex:1]=) {
-            
-        //}
-        
 
 
 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pos inSection:0];
 [self.tableView scrollToRowAtIndexPath:indexPath
                      atScrollPosition:UITableViewScrollPositionMiddle
                              animated:YES];
-[self.tableView selectRowAtIndexPath:indexPath
-                            animated:YES
-                      scrollPosition:UITableViewScrollPositionNone];
+//[self.tableView selectRowAtIndexPath:indexPath
+//                            animated:YES
+//                      scrollPosition:UITableViewScrollPositionNone];
 }
 
 /**********************************************************************************************
@@ -88,6 +90,9 @@ NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pos inSection:0];
     
     cell.lblTitle.text       = [record objectAtIndex:0];
     cell.lblDetail.text      = [record objectAtIndex:1];
+    if (indexPath.row == pos) {
+        cell.backgroundColor = [UIColor brownColor];
+    }
                                         
     return cell;
 }

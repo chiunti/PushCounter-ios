@@ -15,6 +15,7 @@ static DBManager *sharedInstance = nil;
 static sqlite3         *database = nil;
 static sqlite3_stmt   *statement = nil;
 
+
 @implementation DBManager
 +(DBManager*)getSharedInstance{
     if (!sharedInstance) {
@@ -72,6 +73,7 @@ static sqlite3_stmt   *statement = nil;
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
             sqlite3_reset(statement);
+            lastScore = [registerNumber intValue];
             return YES;
         } else {
             NSLog(@"Statement FAILED (%s)", sqlite3_errmsg(database));

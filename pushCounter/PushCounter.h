@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnStart;
 @property (strong, nonatomic) IBOutlet UIButton *btnResults;
 @property (strong, nonatomic) IBOutlet UILabel *lblCountDown;
+@property (strong, nonatomic) IBOutlet UILabel *lblStartFinish;
+@property (strong, nonatomic) IBOutlet UILabel *lblInstructions;
 
 - (IBAction)btnStartPressed:(id)sender;
 - (IBAction)btnPusherPressed:(id)sender;
