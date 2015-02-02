@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3CB279831A7AC6CD00EAF3F3 /* CellScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB279821A7AC6CD00EAF3F3 /* CellScore.m */; };
+		3CB279871A7F306B00EAF3F3 /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CB279851A7F306B00EAF3F3 /* redButton.png */; };
+		3CB279881A7F306B00EAF3F3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CB279861A7F306B00EAF3F3 /* icon.png */; };
 		3CC47D221A78AD4500216598 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC47D211A78AD4500216598 /* main.m */; };
 		3CC47D251A78AD4500216598 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC47D241A78AD4500216598 /* AppDelegate.m */; };
 		3CC47D281A78AD4500216598 /* PushCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC47D271A78AD4500216598 /* PushCounter.m */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		3CB279811A7AC6CD00EAF3F3 /* CellScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellScore.h; sourceTree = SOURCE_ROOT; };
 		3CB279821A7AC6CD00EAF3F3 /* CellScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellScore.m; sourceTree = SOURCE_ROOT; };
+		3CB279851A7F306B00EAF3F3 /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redButton.png; path = ../../../../Downloads/redButton.png; sourceTree = "<group>"; };
+		3CB279861A7F306B00EAF3F3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../../Downloads/icon.png; sourceTree = "<group>"; };
 		3CC47D1C1A78AD4500216598 /* pushCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pushCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC47D201A78AD4500216598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC47D211A78AD4500216598 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,9 +86,20 @@
 			path = pushCounter;
 			sourceTree = "<group>";
 		};
+		3CB279841A7F2F5D00EAF3F3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				3CB279851A7F306B00EAF3F3 /* redButton.png */,
+				3CB279861A7F306B00EAF3F3 /* icon.png */,
+			);
+			name = images;
+			path = pushCounter;
+			sourceTree = "<group>";
+		};
 		3CC47D131A78AD4500216598 = {
 			isa = PBXGroup;
 			children = (
+				3CB279841A7F2F5D00EAF3F3 /* images */,
 				3CB279801A7AC65900EAF3F3 /* Customized */,
 				3CC47D1E1A78AD4500216598 /* pushCounter */,
 				3CC47D381A78AD4600216598 /* pushCounterTests */,
@@ -228,8 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC47D2B1A78AD4500216598 /* Main.storyboard in Resources */,
+				3CB279881A7F306B00EAF3F3 /* icon.png in Resources */,
 				3CC47D301A78AD4500216598 /* LaunchScreen.xib in Resources */,
 				3CC47D2D1A78AD4500216598 /* Images.xcassets in Resources */,
+				3CB279871A7F306B00EAF3F3 /* redButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
