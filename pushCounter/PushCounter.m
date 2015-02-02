@@ -75,7 +75,7 @@ gameState currentState = Idle;
         case Game:
             [initCountDown invalidate];
             [fontSize invalidate];
-            self.lblStartFinish.text = @"The game finish in...";
+            self.lblStartFinish.text = @"The game finish in";
             self.lblCountDown.text = @"";
             countDown = 10;
             self.lblCountDown.font = [UIFont systemFontOfSize:50];
@@ -91,7 +91,7 @@ gameState currentState = Idle;
             //
             [self Save];
             // cambiar a resultados
-            
+            [self performSegueWithIdentifier:@"HomeToResults" sender:self];
             break;
             
         default:
@@ -100,7 +100,7 @@ gameState currentState = Idle;
 }
 
 
--(void)Save{
+-(BOOL)Save{
     BOOL success = NO;
     NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
     [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
@@ -109,6 +109,7 @@ gameState currentState = Idle;
     success = [[DBManager getSharedInstance]saveData:
                [NSString stringWithFormat:@"%i",counter]
                detail:[DateFormatter stringFromDate:[NSDate date]]];
+    return success;
 }
 
 

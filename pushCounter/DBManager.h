@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
-int lastScore;
 
 @interface DBManager : NSObject
 {
@@ -19,4 +18,5 @@ int lastScore;
 -(BOOL)saveData:(NSString*)registerNumber detail:(NSString*)detail;
 -(NSArray*) findByRegisterNumber:(NSString*)registerNumber;
 -(NSArray*) allRecords;
+-(int)lastScore;
 @end

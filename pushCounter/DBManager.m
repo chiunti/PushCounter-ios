@@ -14,6 +14,7 @@ static NSString    *insertScores = @"insert into scores (score,detail) values (\
 static DBManager *sharedInstance = nil;
 static sqlite3         *database = nil;
 static sqlite3_stmt   *statement = nil;
+int lastScore;
 
 
 @implementation DBManager
@@ -118,6 +119,7 @@ static sqlite3_stmt   *statement = nil;
     {
         NSString *querySQL = [NSString stringWithFormat: @"select score, detail from scores order by score desc"];
         const char *query_stmt = [querySQL UTF8String];
+        //const char *query_stmt = "select score, detail from scores order by score desc";
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database,query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
@@ -135,6 +137,10 @@ static sqlite3_stmt   *statement = nil;
     }
     return nil;
 
+}
+
+-(int)lastScore{
+    return lastScore;
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "ViewResults.h"
 #import "CellScore.h"
+#import "DBManager.h"
+
 int pos;
 
 NSMutableArray *maScores;
@@ -20,20 +22,12 @@ NSMutableArray *maScores;
 
 - (void)viewDidLoad
 {
-    int counter = 0;
-    pos = 0;
 
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     [self initController];
-    
-    for(NSArray *item in maScores) {
-        if([[item objectAtIndex:1] integerValue] == lastScore){
-            pos = counter;
-        }
-        counter++;
-    }}
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -42,7 +36,16 @@ NSMutableArray *maScores;
 
 - (void)initController
 {
+    int counter = 0;
+    pos = 0;
+
     maScores = [NSMutableArray arrayWithArray:[[DBManager getSharedInstance]allRecords]];
+    for(NSArray *item in maScores) {
+        if([[item objectAtIndex:1] integerValue] ==[[DBManager getSharedInstance]lastScore]){
+            pos = counter;
+        }
+        counter++;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -52,10 +55,12 @@ NSMutableArray *maScores;
 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pos inSection:0];
 [self.tableView scrollToRowAtIndexPath:indexPath
                      atScrollPosition:UITableViewScrollPositionMiddle
-                             animated:YES];
-//[self.tableView selectRowAtIndexPath:indexPath
-//                            animated:YES
-//                      scrollPosition:UITableViewScrollPositionNone];
+                             animated:animated];
+
+ /*[self.tableView selectRowAtIndexPath:indexPath
+                            animated:YES
+                      scrollPosition:UITableViewScrollPositionNone];
+ */
 }
 
 /**********************************************************************************************
@@ -90,8 +95,12 @@ NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pos inSection:0];
     
     cell.lblTitle.text       = [record objectAtIndex:0];
     cell.lblDetail.text      = [record objectAtIndex:1];
+
     if (indexPath.row == pos) {
-        cell.backgroundColor = [UIColor brownColor];
+        cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.75 blue:0.65 alpha:1];
+        //NSLog(@"pos:%d  row:%ld",pos,(long)indexPath.row);
+    } else {
+        cell.backgroundColor =  [UIColor clearColor];
     }
                                         
     return cell;
